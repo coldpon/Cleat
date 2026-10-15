@@ -1,0 +1,38 @@
+# --- C++ / Agent ---
+Agent/build/
+Agent/out/
+*.obj
+*.o
+*.lib
+*.dll
+*.exe
+*.pdb
+*.ilk
+*.exp
+
+# --- Go / TeamServer ---
+TeamServer/bin/
+TeamServer/data/
+TeamServer/logs/
+*.log
+
+# --- Web ---
+cleat-web/node_modules/
+cleat-web/dist/
+cleat-web/out/
+
+# ---敏感(永远不入库) ---
+*.pem
+*.key
+*.crt
+*.pfx
+*.db
+*.db-shm
+*.db-wal
+.vscode/
+.idea/
+.DS_Store
+
+# --- 本地依赖产物(由 scripts/*.cmd 生成, 不入库) ---
+Agent/Common/ThirdParty/libsodium/
+Agent/Common/ThirdParty/msquic/

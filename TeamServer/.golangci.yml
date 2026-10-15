@@ -1,0 +1,31 @@
+# golangci-lint v2 基线配置(第 4 批, )。
+# 策略: 默认四件套(errcheck/govet/ineffassign/staticcheck) + unused。
+# 首跑 38 个存量 issue(死码 9/吞错 19/其他 10) —— 死码随 cobra 重写消亡,
+# 吞错债按"显式 _ = "惯例逐步收编; 全部清零前本工具不作为 CI 闸门, 只作增量拦截。
+version: "2"
+
+linters:
+  enable:
+    - errcheck
+    - govet
+    - ineffassign
+    - staticcheck
+    - unused
+  settings:
+    errcheck:
+      # 项目惯例: 显式 `_ = f()` 为合法吞错(有意降级), errcheck 不再重复报;
+      # 裸调用(连 _ = 都不写)才是目标问题。
+      check-blank: false
+  # 协议层铁律"底层一行不动"(peng): frame.go 的 math/rand 噪声源/embedded selector/
+  # if-chain 风格属既有形态, 不因 lint 观感改动 —— 协议行为零风险优先。
+  exclusions:
+    rules:
+      # 协议层铁律"底层一行不动"(peng): frame.go 的 math/rand 噪声源/embedded
+      # selector/if-chain 风格属既有形态, 不因 lint 观感改动 —— 协议行为零风险优先。
+      - path: internal/protocol/frame\.go
+        linters:
+          - errcheck
+          - govet
+          - ineffassign
+          - staticcheck
+          - unused

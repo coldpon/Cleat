@@ -1,0 +1,11 @@
+# gitleaks 配置 —— 在默认规则集之上追加白名单(误报治理)。
+# 用法: gitleaks dir .        (在仓库根目录执行, 自动读取本文件)
+#       gitleaks git .
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "TeamServer 配置解析: X25519Key 字段赋值(字段拷贝, 非硬编码密钥)"
+paths = ['''config_toml\.go''']
+regexTarget = "match"
+regexes = ['''X25519Key''']
