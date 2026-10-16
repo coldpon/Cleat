@@ -15,19 +15,6 @@
 [简体中文](README.md) | **English**
 
 </div>
-
-## What is Cleat
-
-It is built from three components:
-
-| Component | Language | Role |
-| --- | --- | --- |
-| **Agent** | C++17 | Implant: comms, tasking, channel chain, sleep mask, module execution (Windows first / Linux) |
-| **TeamServer** | Go | Multi-operator server: listeners, session management, tasking, SQLite store |
-| **cleat-web** | React + TS | Operator console |
-
-> Authorized use only — see [Legal](#legal).
-
 ## Highlights
 
 ### Data plane · Hybrid frames
